@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{css/user/sign-in.css}">
+</head>
+<body>
+<form class="sign-in-form" th:method="POST" th:action="@{/sign-up}">
+
+    <input hidden="hidden" name="_csrf" th:value="${_csrf}">
+
+    <h1>Sign in</h1>
+
+    <label>
+        Name
+    </label>
+    <input type="text" name="name" placeholder="name">
+
+    <label>
+        Surname
+    </label>
+    <input type="text" name="surname" placeholder="surname">
+
+    <label>
+        Phone Number
+    </label>
+    <input type="text" name="phoneNumber" placeholder="phone number">
+    <label>
+        Email:
+    </label>
+    <input type="text" name="email" placeholder="email">
+    <label>
+        Password:
+    </label>
+    <input type="password" name="password" placeholder="password">
+    <button type="submit">Sign In</button>
+</form>
+</body>
+</html>

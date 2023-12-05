@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Rental</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/"><h1>Rent Car</h1></a>
+            <ul>
+                <li sec:authorize="isAnonymous()"><a href="/sign-in">Sign in</a></li>
+                <li sec:authorize="isAnonymous()"><a href="/sign-up">Sign up</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/sign-up">Username</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/sign-up">Create Car</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

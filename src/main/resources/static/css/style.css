@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-content{
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1d1d;
+    color: white;
+}
+
+
+.nav-content ul{
+    list-style: none;
+    display: flex;
+}
+.nav-content ul li{
+    margin: 0 7px;
+}
+
+
+.nav-content a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.nav-content li a:hover{
+    color: indianred;
+}
