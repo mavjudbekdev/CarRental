@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -25,14 +26,15 @@ public class SecurityConfig {
                 .formLogin(
                         loginConfig -> loginConfig
                                 .loginPage("/sign-in")
-                                .successForwardUrl("/")
+                                .defaultSuccessUrl("/")
                                 .loginProcessingUrl("/sign-in")
                                 .usernameParameter("email")
                                 .passwordParameter("password")
                 )
+
                 .logout(
                         logoutConfig -> logoutConfig
-                                .logoutUrl("/sign-out")
+                                .logoutRequestMatcher( new AntPathRequestMatcher("/sign-out"))
                                 .logoutSuccessUrl("/sign-in")
                 )
                 .rememberMe(

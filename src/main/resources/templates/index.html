@@ -13,10 +13,12 @@
             <ul>
                 <li sec:authorize="isAnonymous()"><a href="/sign-in">Sign in</a></li>
                 <li sec:authorize="isAnonymous()"><a href="/sign-up">Sign up</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/sign-up">Username</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/sign-up">Create Car</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/sign-up" th:text="${#authentication.principal.surname} + ' ' + ${#authentication.principal.name}"></a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/create-car">Create Car</a></li>
             </ul>
         </div>
     </nav>
 </body>
 </html>
+
+

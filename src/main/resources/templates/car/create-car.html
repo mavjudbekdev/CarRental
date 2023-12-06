@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Create car</title>
+    <link rel="stylesheet" th:href="@{css/user/sign-in.css}">
+</head>
+<body>
+
+
+<form class="sign-in-form" th:method="POST" th:action="@{/create-car}">
+
+    <input hidden="hidden" name="_csrf" th:value="${_csrf}">
+
+    <h1>Create Car</h1>
+
+    <label>
+        Car name
+    </label>
+    <input type="text" name="name" placeholder="Car name">
+
+    <label>
+        Car number
+    </label>
+    <input type="text" name="number" placeholder="Car number">
+
+    <label>
+        Car description
+    </label>
+    <input type="text" name="description" placeholder="Car description">
+    <label>
+        Car daily price
+    </label>
+    <input type="text" name="dailyPrice" placeholder="Car daily price">
+    <label>
+        Manufactured Date
+    </label>
+    <input type="date" name="manufacturedDate">
+
+    <input hidden="hidden">
+    <button type="submit">Create Car</button>
+</form>
+
+</body>
+</html>
