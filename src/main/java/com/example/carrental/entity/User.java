@@ -27,7 +27,6 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String phoneNUmber;
     private String password;
-
     @ManyToMany
     @JoinTable(
             name = "user_role",
@@ -35,6 +34,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<Car> cars;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -66,3 +68,5 @@ public class User implements UserDetails {
         return true;
     }
 }
+
+

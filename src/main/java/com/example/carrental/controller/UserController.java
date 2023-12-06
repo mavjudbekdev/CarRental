@@ -2,6 +2,7 @@ package com.example.carrental.controller;
 
 import com.example.carrental.config.PasswordEncoderConfig;
 import com.example.carrental.dto.UserCreateDto;
+import com.example.carrental.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final PasswordEncoderConfig passwordEncoderConfig;
+
+    private final UserService userService;
+
     @GetMapping("/sign-in")
     public String signIn(){
 
@@ -28,11 +31,9 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public String signUp(@ModelAttribute UserCreateDto createDto){
-        createDto.setPassword(createDto.getPassword());
-        System.out.println(createDto);
-        return "user/sign-up";
+        userService.create(createDto);
+        return "redirect:/user/sign-in";
     }
-
-    // todo 1:50 end 
+  
 
 }
